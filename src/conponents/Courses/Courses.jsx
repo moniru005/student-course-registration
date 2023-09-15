@@ -8,6 +8,7 @@ const Courses = () => {
     const [selectedCourses, setSelectedCourses] = useState([]);
     const [remaining, setRemaining] = useState(0);
     const [totalCreditHour, setTotalCreditHour] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
         fetch("data.json")
@@ -18,12 +19,14 @@ const Courses = () => {
     const handleSelectedCourse = course => {
         const isExist = selectedCourses.find(item => item.id == course.id);
         let countHour = course.credit_hour;
+        let countPrice = course.price;
         if (isExist) {
             alert('Course selected already')
         }
         else {
             selectedCourses.forEach(item => {
-                countHour = countHour + item.credit_hour
+                countHour = countHour + item.credit_hour,
+                    countPrice = countPrice + item.price
             })
             const totalRemaining = 20 - countHour;
             if (countHour > 20) {
@@ -31,6 +34,7 @@ const Courses = () => {
                     'Credit Limitation Locked!')
             }
             else {
+                setTotalPrice(countPrice);
                 setTotalCreditHour(countHour);
                 setRemaining(totalRemaining);
                 setSelectedCourses([...selectedCourses, course]);
@@ -58,6 +62,7 @@ const Courses = () => {
                 </div>
                 <div className="w-1/4 flex flex-col items-center mr-4">
                     <Cart
+                        totalPrice={totalPrice}
                         totalCreditHour={totalCreditHour}
                         remaining={remaining}
                         selectedCourses={selectedCourses}

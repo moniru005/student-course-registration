@@ -1,5 +1,5 @@
 
-const Cart = ({ selectedCourses, remaining, totalCreditHour }) => {
+const Cart = ({ selectedCourses, remaining, totalCreditHour, totalPrice }) => {
     return (
         <div>
             <h1>This is the Cart</h1>
@@ -10,6 +10,7 @@ const Cart = ({ selectedCourses, remaining, totalCreditHour }) => {
             </li>
           )}
           <p>Total Credit Hour: {totalCreditHour}</p>
+          <p>Total Price: {totalPrice} USD</p>
         </div>
     );
 };

@@ -1,3 +1,5 @@
+import { BsBook } from 'react-icons/bs';
+
 const Course = ({ course, handleSelectedCourse }) => {
     const { title, details, image, price, credit_hour } = course;
     return (
@@ -12,7 +14,7 @@ const Course = ({ course, handleSelectedCourse }) => {
                     <p ><span className='text-lg font-semibold'>$ </span>
                         Price: {price}
                     </p>
-                    <p>Icon</p>
+                    <p><BsBook></BsBook></p>
                     <p>Credit: {credit_hour}hr</p>
                 </div>
                 <button onClick={() => handleSelectedCourse(course)} 
