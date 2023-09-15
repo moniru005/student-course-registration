@@ -1,4 +1,5 @@
 import { BsBook } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
 const Course = ({ course, handleSelectedCourse }) => {
     const { title, details, image, price, credit_hour } = course;
@@ -25,5 +26,10 @@ const Course = ({ course, handleSelectedCourse }) => {
         </div>
     );
 };
+
+Course.propTypes ={
+    course: PropTypes.object.isRequired,
+    handleSelectedCourse: PropTypes.func.isRequired
+}
 
 export default Course;
