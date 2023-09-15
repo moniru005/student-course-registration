@@ -14,7 +14,7 @@ const Cart = ({ selectedCourses, remaining, totalCreditHour, totalPrice }) => {
             </li>
           )}
           <hr className='mt-4'></hr>
-          <p className='mt-2 text-gray-500 text-[15px] '>Total Credit Hour: {totalCreditHour}</p>
+          <p className='mt-2 text-gray-600 text-[15px] font-medium'>Total Credit Hour: {totalCreditHour}</p>
           <hr className='mt-3'></hr>
           <p className='mt-2 text-gray-500 text-[15px] font-bold'>Total Price: {totalPrice} USD</p>
         </div>
