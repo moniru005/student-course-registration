@@ -6,7 +6,7 @@ const Course = ({ course, handleSelectedCourse }) => {
     return (
         <div className="course-container flex justify-center">
             <div className="course-card w-72 h-[353px] p-3 rounded-lg bg-white">
-                <img src={image} alt="" />
+                <img className="w-72 rounded-lg flex mx-auto" src={image} alt="" />
                 <h1 className="my-2 font-semibold">{title}</h1>
                 <p className="text-gray-500 h-[72px]">
                     <small>{details}</small>
