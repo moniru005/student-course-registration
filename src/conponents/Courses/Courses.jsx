@@ -6,6 +6,8 @@ import { useEffect } from "react";
 const Courses = () => {
     const [courses, setCourses] = useState([]);
     const [selectedCourses, setSelectedCourses] = useState([]);
+    const [remaining, setRemaining] = useState(0);
+    const [totalCreditHour, setTotalCreditHour] = useState(0);
 
     useEffect(() => {
         fetch("data.json")
@@ -15,14 +17,28 @@ const Courses = () => {
 
     const handleSelectedCourse = course => {
         const isExist = selectedCourses.find(item => item.id == course.id);
-        if(isExist){
+        let countHour = course.credit_hour;
+        if (isExist) {
             alert('Course selected already')
         }
-        else{
-            setSelectedCourses([...selectedCourses, course]);
+        else {
+            selectedCourses.forEach(item => {
+                countHour = countHour + item.credit_hour
+            })
+            const totalRemaining = 20 - countHour;
+            if (countHour > 20) {
+                alert(
+                    'Credit Limitation Locked!')
+            }
+            else {
+                setTotalCreditHour(countHour);
+                setRemaining(totalRemaining);
+                setSelectedCourses([...selectedCourses, course]);
+            }
+
         }
-        
-        
+
+
     }
 
     return (
@@ -42,6 +58,8 @@ const Courses = () => {
                 </div>
                 <div className="w-1/4 flex flex-col items-center mr-4">
                     <Cart
+                        totalCreditHour={totalCreditHour}
+                        remaining={remaining}
                         selectedCourses={selectedCourses}
                         handleSelectedCourse={handleSelectedCourse}
                     ></Cart>
