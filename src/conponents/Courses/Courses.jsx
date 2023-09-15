@@ -5,11 +5,17 @@ import { useEffect } from "react";
 
 const Courses = () => {
     const [courses, setCourses] = useState([]);
+    const [selectedCourses, setSelectedCourses] = useState([]);
+
     useEffect(() => {
         fetch("data.json")
             .then((res) => res.json())
             .then((data) => setCourses(data));
     }, []);
+
+    const handleSelectedCourse = course => {
+        setSelectedCourses([...selectedCourses, course]);
+    }
 
     return (
         <div className="container mx-auto">
@@ -22,11 +28,15 @@ const Courses = () => {
                         <Course
                             key={course.id}
                             course={course}
+                            handleSelectedCourse={handleSelectedCourse}
                         ></Course>
                     ))}
                 </div>
                 <div className="w-1/4 flex flex-col items-center mr-4">
-                    <Cart></Cart>
+                    <Cart
+                        selectedCourses={selectedCourses}
+                        handleSelectedCourse={handleSelectedCourse}
+                    ></Cart>
                 </div>
             </div>
         </div>

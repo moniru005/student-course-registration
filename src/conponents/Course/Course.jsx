@@ -1,4 +1,4 @@
-const Course = ({ course }) => {
+const Course = ({ course, handleSelectedCourse }) => {
     const { title, details, image, price, credit_hour } = course;
     return (
         <div className="course-container flex justify-center">
@@ -15,7 +15,8 @@ const Course = ({ course }) => {
                     <p>Icon</p>
                     <p>Credit: {credit_hour}hr</p>
                 </div>
-                <button className="px-4 py-1 bg-blue-700 text-white rounded-md flex mx-auto w-full">
+                <button onClick={() => handleSelectedCourse(course)} 
+                className="px-4 py-1 bg-blue-700 text-white rounded-md flex mx-auto w-full">
                     <span className="flex mx-auto">Select</span>
                 </button>
             </div>
