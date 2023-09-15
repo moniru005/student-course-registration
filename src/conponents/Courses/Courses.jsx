@@ -36,7 +36,7 @@ const Courses = () => {
             const totalRemaining = 20 - countHour;
             if (countHour > 20) {
                 Swal.fire(
-                    'Credit Limitation Locked!',
+                    'Your credit limit is over!',
                     'You can not take more than 20 Credit Hour!',
                     'error'
                 )
