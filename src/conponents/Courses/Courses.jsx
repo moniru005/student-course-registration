@@ -14,7 +14,15 @@ const Courses = () => {
     }, []);
 
     const handleSelectedCourse = course => {
-        setSelectedCourses([...selectedCourses, course]);
+        const isExist = selectedCourses.find(item => item.id == course.id);
+        if(isExist){
+            alert('Course selected already')
+        }
+        else{
+            setSelectedCourses([...selectedCourses, course]);
+        }
+        
+        
     }
 
     return (
