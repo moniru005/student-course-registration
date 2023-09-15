@@ -2,6 +2,7 @@ import { useState } from "react";
 import Cart from "../Cart/Cart";
 import Course from "../Course/Course";
 import { useEffect } from "react";
+import Swal from 'sweetalert2'
 
 const Courses = () => {
     const [courses, setCourses] = useState([]);
@@ -21,7 +22,11 @@ const Courses = () => {
         let countHour = course.credit_hour;
         let countPrice = course.price;
         if (isExist) {
-            alert('Course selected already')
+            Swal.fire(
+                'Course Selected Already',
+                'You can not select same course more than single',
+                'warning'
+            )
         }
         else {
             selectedCourses.forEach(item => {
@@ -30,8 +35,11 @@ const Courses = () => {
             })
             const totalRemaining = 20 - countHour;
             if (countHour > 20) {
-                alert(
-                    'Credit Limitation Locked!')
+                Swal.fire(
+                    'Credit Limitation Locked!',
+                    'You can not take more than 20 Credit Hour!',
+                    'error'
+                )
             }
             else {
                 setTotalPrice(countPrice);
@@ -46,7 +54,7 @@ const Courses = () => {
     }
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mb-4">
             <div className="text-center my-6">
                 <h1 className="text-3xl font-bold">Course Registration</h1>
             </div>
