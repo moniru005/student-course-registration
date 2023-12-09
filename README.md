@@ -1,9 +1,10 @@
 
 # Project Title: Class Registration
 
+#### Project Links:
 
-
-## Q.1 - Project Features
+- Live Link: https://brilliant-donation-campaign.netlify.app/
+## Project Features
 
 Certainly, here are few important project features for students class registration system, each with an estimated credit hour cost:
 
@@ -24,8 +25,7 @@ Certainly, here are few important project features for students class registrati
 These features should help improve the user experience, prevent common registration errors, and streamline the course selection.
 
 
-## Q.2 - Discuss Managed the state:
-
+## Discuss Managed the state:
 
 
 #### Local State:
@@ -72,6 +72,10 @@ Below the useEffect using for fetch the all courses data from the local json fil
       .then((data) => setCourses(data));
   }, []);
 ```
+## Tech Stack
+
+**Client:** React, TailwindCSS, DaisyUI
+
 
 ## Installation on this project
 
@@ -111,3 +115,7 @@ Import for React Icons
 ```bash
     import { BsBook } from 'react-icons/bs';
 ```
+## Created By
+
+*---Md. Monir Uddin*
+
