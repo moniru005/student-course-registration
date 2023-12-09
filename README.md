@@ -3,7 +3,7 @@
 
 #### Project Links:
 
-- Live Link: https://brilliant-donation-campaign.netlify.app/
+- Live Link: https://student-course-registration.netlify.app/
 ## Project Features
 
 Certainly, here are few important project features for students class registration system, each with an estimated credit hour cost:
